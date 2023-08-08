@@ -4,10 +4,10 @@ namespace Generator.Core
 {
     public class StringGenerator : IStringGenerator
     {
-        private static readonly Random _random = new Random();
-        private static readonly DateTime _startDate = new DateTime(2018, 8, 5);
-        private static readonly string _latinSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-        private static readonly string _russianSymbols = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+        private readonly Random _random = new Random();
+        private readonly DateTime _startDate = new DateTime(2018, 8, 5);
+        private readonly string _latinSymbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        private readonly string _russianSymbols = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";
 
         public int GenerateString(ref Span<char> stringSpan)
         {
@@ -53,8 +53,6 @@ namespace Generator.Core
 
             stringSpan[spanLength++] = '|';
             stringSpan[spanLength++] = '|';
-
-            stringSpan[spanLength++] = '\n';
 
             return spanLength;
         }

@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Generator.Abstractions\Generator.Abstractions.csproj" />
-    <ProjectReference Include="..\Generator.Joiner.Core\Generator.Joiner.Core.csproj" />
+    <ProjectReference Include="..\Generator.Core\Generator.Core.csproj" />
   </ItemGroup>
 
 </Project>

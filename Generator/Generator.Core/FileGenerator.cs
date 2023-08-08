@@ -4,20 +4,29 @@ namespace Generator.Core
 {
     public class FileGenerator : IFileGenerator
     {
-        private static readonly IStringGenerator _generator = new StringGenerator();
-        public void GenerateFiles(string filename)
+        private readonly IStringGenerator _generator = new StringGenerator();
+        private string? _generationDirectoryPath;
+
+        public void GenerateFiles(string generationDirectoryPath, int count)
+        {
+            _generationDirectoryPath = generationDirectoryPath;
+            Parallel.For(0, count, GenerateFile);
+        }
+        private void GenerateFile(int index)
         {
             Span<char> generationSpan = stackalloc char[61];
-            int stringLenght = 0;
-            using (var writer = new StreamWriter(filename))
+            int stringLength = 0;
+            using (var writer = new StreamWriter($"{_generationDirectoryPath}\\file{index}.txt"))
             {
-                for (int i = 0; i < 100000; i++)
+                for (int i = 0; i < 99999; i++)
                 {
-                    stringLenght = _generator.GenerateString(ref generationSpan);
-                    writer.Write(generationSpan.Slice(0, stringLenght));
+                    stringLength = _generator.GenerateString(ref generationSpan);
+                    generationSpan[stringLength++] = '\n';
+                    writer.Write(generationSpan.Slice(0, stringLength));
                 }
+                stringLength = _generator.GenerateString(ref generationSpan);
+                writer.Write(generationSpan.Slice(0, stringLength));
             }
         }
-
     }
 }

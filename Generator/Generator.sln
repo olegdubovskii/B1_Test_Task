@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator.Joiner.Core", "Ge
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator.Joiner.Abstractions", "Generator.Joiner.Abstractions\Generator.Joiner.Abstractions.csproj", "{19DC782D-545F-4CED-8DDC-3E4173585102}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator.Abstractions", "Generator.Abstractions\Generator.Abstractions.csproj", "{712701FD-9A2F-40B2-BF7B-2643FE2B3B63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Generator.Abstractions", "Generator.Abstractions\Generator.Abstractions.csproj", "{712701FD-9A2F-40B2-BF7B-2643FE2B3B63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator.Launcher", "Generator.Launcher\Generator.Launcher.csproj", "{27C42DE8-7BA4-4F7A-817B-807195DC0A2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{712701FD-9A2F-40B2-BF7B-2643FE2B3B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{712701FD-9A2F-40B2-BF7B-2643FE2B3B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{712701FD-9A2F-40B2-BF7B-2643FE2B3B63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C42DE8-7BA4-4F7A-817B-807195DC0A2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C42DE8-7BA4-4F7A-817B-807195DC0A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C42DE8-7BA4-4F7A-817B-807195DC0A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C42DE8-7BA4-4F7A-817B-807195DC0A2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
