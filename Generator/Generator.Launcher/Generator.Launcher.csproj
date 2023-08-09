@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Generator.Core\Generator.Core.csproj" />
+    <ProjectReference Include="..\Generator.Importer.Core\Generator.Importer.Core.csproj" />
   </ItemGroup>
 
 </Project>
