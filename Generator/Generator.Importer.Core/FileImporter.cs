@@ -33,6 +33,7 @@ namespace Generator.Importer.Core
                 {
                     ImportFile(file.FullName);
                 }
+                _unitOfWork.Dispose();
                 _stopwatch.Stop();
                 _isFinished = true;
             });

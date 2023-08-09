@@ -1,6 +1,5 @@
 ﻿using Generator.Importer.DAL.Abstractions;
 using Generator.Importer.DAL.Repositories;
-using Microsoft.EntityFrameworkCore;
 
 namespace Generator.Importer.DAL
 {
@@ -8,11 +7,10 @@ namespace Generator.Importer.DAL
     {
         private DatabaseContext _databaseContext;
         private FileStringRepository _fileStringRepository;
-        private bool _disposed = false;
 
-        public UnitOfWork(DbContextOptions<DatabaseContext> options)
+        public UnitOfWork()
         {
-            _databaseContext = new DatabaseContext(options);
+            _databaseContext = new DatabaseContext();
         }
 
         public FileStringRepository FileStringRepository
@@ -41,10 +39,8 @@ namespace Generator.Importer.DAL
 
         public void RecreateContext()
         {
-            var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
-            var options = optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=task1db;Trusted_Connection=True;").Options;
-            _databaseContext.Dispose();
-            _databaseContext = new DatabaseContext(options);
+            Dispose();
+            _databaseContext = new DatabaseContext();
             _fileStringRepository = new FileStringRepository(_databaseContext);
 
         }

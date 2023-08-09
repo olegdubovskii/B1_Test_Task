@@ -1,8 +1,8 @@
 ﻿using Generator.Core;
 using Generator.Importer.Core;
 using Generator.Importer.DAL;
+using Generator.Importer.DAL.Services;
 using Generator.Joiner.Core;
-using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Generator.Launcher
@@ -13,16 +13,18 @@ namespace Generator.Launcher
         private static FileGenerator? _fileGenerator;
         private static FileJoiner? _fileJoiner;
         private static FileImporter? _fileImporter;
+        private static StoredProceduresService? _storedProceduresService;
         public static void LaunchApplication()
         {
             int commandNumber = 0;
-            while (commandNumber != 4)
+            while (commandNumber != 5)
             {
                 Console.WriteLine("Enter the command number:\n" +
                     "1.Generate files\n" +
                     "2.Join files\n" +
                     "3.Import files\n" +
-                    "4.Exit");
+                    "4.Calculate integers sum and doubles median\n" +
+                    "5.Exit");
                 commandNumber = Convert.ToInt32(Console.ReadLine());
                 switch(commandNumber)
                 {
@@ -43,7 +45,12 @@ namespace Generator.Launcher
                         }
                     case 4:
                         {
-                            commandNumber = 4;
+                            LaunchStoredProcedure();
+                            break;
+                        }
+                    case 5:
+                        {
+                            commandNumber = 5;
                             break;
                         }
                     default:
@@ -157,9 +164,7 @@ namespace Generator.Launcher
                 throw new ArgumentException("Directory not found. Try to input the path again.");
             }
 
-            var optionsBuilder = new DbContextOptionsBuilder<DatabaseContext>();
-            var options = optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=task1db;Trusted_Connection=True;").Options;
-            UnitOfWork unitOfWork = new UnitOfWork(options);
+            UnitOfWork unitOfWork = new UnitOfWork();
             _fileImporter = new FileImporter(unitOfWork);
             _fileImporter.ImportFiles(path);
             Console.WriteLine("Import started...");
@@ -169,6 +174,18 @@ namespace Generator.Launcher
                 Console.WriteLine(_fileImporter.GetInfo());
             } while(!_fileImporter.isFinished);
             Console.WriteLine("Import finished...");
+        }
+
+        private static void LaunchStoredProcedure()
+        {
+            if (_storedProceduresService is null)
+            {
+                _storedProceduresService = new StoredProceduresService();
+            }
+            _stopwatch.Restart();
+            string sumAndMedianResult = _storedProceduresService.GetIntSumAndDoubleMedian();
+            _stopwatch.Stop();
+            Console.WriteLine($"{sumAndMedianResult}. Elapsed time: {_stopwatch.Elapsed}");
         }
     }
 }
