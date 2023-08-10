@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.102.0" />
+    <PackageReference Include="IronXL.Excel" Version="2023.8.19" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExcelImporter.DAL\ExcelImporter.DAL.csproj" />
+    <ProjectReference Include="..\ExcelImporter.Parser.Abstractions\ExcelImporter.Parser.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
