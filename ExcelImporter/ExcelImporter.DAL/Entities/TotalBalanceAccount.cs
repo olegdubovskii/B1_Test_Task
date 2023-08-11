@@ -2,6 +2,9 @@
 
 namespace ExcelImporter.DAL.Entities
 {
+    /// <summary>
+    /// Entity that represents total balance account(domain concept) from excel document
+    /// </summary>
     public class TotalBalanceAccount
     {
         public int Id { get; set; }

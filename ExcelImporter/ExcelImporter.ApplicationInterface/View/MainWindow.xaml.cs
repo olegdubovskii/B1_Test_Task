@@ -15,6 +15,10 @@ namespace ExcelImporter.ApplicationInterface
             DataContext = new AppViewModel();
         }
 
+        /// <summary>
+        /// Method redirects the treeview change notification to the ViewModel
+        /// </summary>
+        /// <param name="e">Item from TreeView</param>
         private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             var appViewModel = DataContext as AppViewModel;

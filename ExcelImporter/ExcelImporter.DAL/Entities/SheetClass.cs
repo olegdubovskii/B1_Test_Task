@@ -2,6 +2,9 @@
 
 namespace ExcelImporter.DAL.Entities
 {
+    /// <summary>
+    /// Entity that represents class(domain concept) from excel document
+    /// </summary>
     public class SheetClass
     {
         public int Id { get; set; }

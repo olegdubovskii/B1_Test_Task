@@ -1,6 +1,9 @@
 ﻿
 namespace ExcelImporter.DAL.Entities
 {
+    /// <summary>
+    /// Entity that simply represents excel file
+    /// </summary>
     public class ExcelFile
     {
         public int Id { get; set; }

@@ -4,6 +4,9 @@ using ExcelImporter.DAL.Entities;
 
 namespace ExcelImporter.ApplicationInterface.Model
 {
+    /// <summary>
+    /// Represents database entities in View-DataGrid
+    /// </summary>
     public class CellModel : INotifyPropertyChanged
     {
         public string RowInfo { get; set; }
@@ -20,7 +23,11 @@ namespace ExcelImporter.ApplicationInterface.Model
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
-
+        /// <summary>
+        /// Creates CellModel from BalanceAccount
+        /// </summary>
+        /// <param name="bankAccount"></param>
+        /// <returns></returns>
         public static CellModel CreateCellModel(BalanceAccount bankAccount)
         {
             CellModel cellModel = new CellModel();
@@ -33,6 +40,11 @@ namespace ExcelImporter.ApplicationInterface.Model
             cellModel.OutgoingBalancePassive = bankAccount.OutgoingBalancePassive;
             return cellModel;
         }
+        /// <summary>
+        /// Creates CellModel from TotalBalanceAccount
+        /// </summary>
+        /// <param name="totalBalanceAccount"></param>
+        /// <returns></returns>
         public static CellModel CreateCellModel(TotalBalanceAccount totalBalanceAccount)
         {
             CellModel cellModel = new CellModel();
@@ -45,6 +57,11 @@ namespace ExcelImporter.ApplicationInterface.Model
             cellModel.OutgoingBalancePassive = totalBalanceAccount.OutgoingBalancePassive;
             return cellModel;
         }
+        /// <summary>
+        /// Creates CellModel from SheetClass
+        /// </summary>
+        /// <param name="sheetClass"></param>
+        /// <returns></returns>
         public static CellModel CreateCellModel(SheetClass sheetClass)
         {
             CellModel cellModel = new CellModel();
@@ -58,6 +75,11 @@ namespace ExcelImporter.ApplicationInterface.Model
             return cellModel;
         }
 
+        /// <summary>
+        /// Creates CellModel from Sheet
+        /// </summary>
+        /// <param name="sheet"></param>
+        /// <returns></returns>
         public static CellModel CreateCellModel(Sheet sheet)
         {
             CellModel cellModel = new CellModel();

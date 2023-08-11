@@ -7,6 +7,9 @@ using System.Diagnostics;
 
 namespace Generator.Launcher
 {
+    /// <summary>
+    /// Starts the application and its main methods
+    /// </summary>
     public class Launcher
     {
         private static readonly Stopwatch _stopwatch = new Stopwatch();
@@ -14,6 +17,9 @@ namespace Generator.Launcher
         private static FileJoiner? _fileJoiner;
         private static FileImporter? _fileImporter;
         private static StoredProceduresService? _storedProceduresService;
+        /// <summary>
+        /// Starts application
+        /// </summary>
         public static void LaunchApplication()
         {
             int commandNumber = 0;
@@ -62,6 +68,10 @@ namespace Generator.Launcher
             }
         }
 
+        /// <summary>
+        /// Launches generator
+        /// </summary>
+        /// <exception cref="ArgumentException">Thrown in case when troubles with path exists</exception>
         private static void LaunchGenerator()
         {
             string? path;
@@ -106,6 +116,10 @@ namespace Generator.Launcher
             Console.WriteLine($"{countForGeneration} files generated. Elapsed time: {elapsedTime}");
         }
 
+        /// <summary>
+        /// Joins files
+        /// </summary>
+        /// <exception cref="ArgumentException">Thrown in case when troubles with path exists</exception>
         private static void LaunchJoiner()
         {
             string? path;
@@ -149,6 +163,10 @@ namespace Generator.Launcher
             Console.WriteLine($"Files joined. Deleted strings: {deletedStringsCount}. Elapsed time: {elapsedTime}.");
         }
 
+        /// <summary>
+        /// Imports generated files to database
+        /// </summary>
+        /// <exception cref="ArgumentException">Thrown in case when troubles with path exists</exception>
         private static void LaunchImporter()
         {
             string? path;
@@ -175,7 +193,9 @@ namespace Generator.Launcher
             } while(!_fileImporter.isFinished);
             Console.WriteLine("Import finished...");
         }
-
+        /// <summary>
+        /// Launches stored procedure which calcutales ints sum and doubles median from DB 
+        /// </summary>
         private static void LaunchStoredProcedure()
         {
             if (_storedProceduresService is null)

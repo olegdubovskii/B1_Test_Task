@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Generator.Importer.DAL.Repositories
 {
+    /// <summary>
+    /// Implementation of repository pattern
+    /// </summary>
+    /// <typeparam name="T">Entity type</typeparam>
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         private protected readonly DatabaseContext _context;

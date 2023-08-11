@@ -1,5 +1,8 @@
 ﻿namespace Generator.Importer.DAL.Entities
 {
+    /// <summary>
+    /// Entity that represents our string standart in database
+    /// </summary>
     public class FileString
     {
         public int Id { get; set; }

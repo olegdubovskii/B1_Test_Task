@@ -2,6 +2,9 @@
 
 namespace ExcelImporter.DAL.Entities
 {
+    /// <summary>
+    /// Entity that represents excel sheet in database
+    /// </summary>
     public class Sheet
     {
         public int Id { get; set; }

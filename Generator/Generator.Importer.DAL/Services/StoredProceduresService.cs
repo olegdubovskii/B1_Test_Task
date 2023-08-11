@@ -4,8 +4,15 @@ using System.Data;
 
 namespace Generator.Importer.DAL.Services
 {
+    /// <summary>
+    /// Calling stored procedure from database
+    /// </summary>
     public class StoredProceduresService
     {
+        /// <summary>
+        /// Getting all ints sum and doubles median from database
+        /// </summary>
+        /// <returns></returns>
         public string GetIntSumAndDoubleMedian()
         {
             SqlParameter intSum = new SqlParameter("@Sum", SqlDbType.BigInt);

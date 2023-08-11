@@ -3,6 +3,9 @@ using ExcelImporter.DAL.Repositories;
 
 namespace ExcelImporter.DAL
 {
+    /// <summary>
+    /// Implementation of Unit Of Work pattern for easy work with several repositories and to be sure that we use one database context
+    /// </summary>
     public class UnitOfWork : IUnitOfWork
     {
 
@@ -78,12 +81,18 @@ namespace ExcelImporter.DAL
             }
         }
 
+        /// <summary>
+        /// Disposing context
+        /// </summary>
         public void Dispose()
         {
             _databaseContext.Dispose();
             GC.SuppressFinalize(this);
         }
 
+        /// <summary>
+        /// Saving all commited changes in the database
+        /// </summary>
         public void Save()
         {
             _databaseContext.SaveChanges();
