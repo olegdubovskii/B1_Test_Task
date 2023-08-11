@@ -23,7 +23,7 @@ namespace ExcelImporter.DAL
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("config.json").Build();
             string connectionString = config.GetConnectionString("DefaultConnection");
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionString);
         }
     }
 }

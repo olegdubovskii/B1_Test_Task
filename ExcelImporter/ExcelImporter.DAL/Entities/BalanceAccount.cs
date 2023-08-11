@@ -14,6 +14,6 @@ namespace ExcelImporter.DAL.Entities
         public decimal OutgoingBalancePassive { get; set; }
         [ForeignKey("TotalBalanceAccount")]
         public int TotalBalanceAccountId { get; set; }
-        public TotalBalanceAccount TotalBalanceAccount { get; set; }
+        public virtual TotalBalanceAccount TotalBalanceAccount { get; set; }
     }
 }

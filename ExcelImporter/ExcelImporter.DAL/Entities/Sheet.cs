@@ -20,7 +20,7 @@ namespace ExcelImporter.DAL.Entities
         public decimal OutgoingBalancePassive { get; set; }
         [ForeignKey ("ExcelFile")]
         public int ExcelFileId { get; set; }
-        public ExcelFile ExcelFile { get; set; }
-        public List<SheetClass> Classes { get; set; } = new List<SheetClass>();
+        public virtual ExcelFile ExcelFile { get; set; }
+        public virtual List<SheetClass> Classes { get; set; } = new List<SheetClass>();
     }
 }
